@@ -1,6 +1,17 @@
 # CompraColaborativa
 
+# Tema Boostrap https://bootswatch.com/flatly/
+
+# Iconos https://fontawesome.com/icons?d=gallery
+
+# Spinner Angular https://napster2210.github.io/ngx-spinner/
+https://www.npmjs.com/package/ngx-spinner
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+
+## Installation
+
+Run `npm install` to install all dependencies
 
 ## Development server
 

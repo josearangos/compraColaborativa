@@ -1,25 +1,25 @@
-<header>
-  <div class="row">
-    <div class="col-5 col-sm-3">
+<header class="bg-primary">
+  <div class="row divs">
+    <div class="col-5 col-sm-3 divLogo">
       <div>
         <img src="" alt="">
       </div>
     </div>
-    <div class="col-7 col-sm-5">
-      <input type="text">
-      <button><i class="fas fa-search"></i></button>
+    <div class="col-12 col-sm-5 divBusqueda">
+      <input type="text" class="form-control inputAppSearch">
+      <button class="buttonSearch float-left btn btn-secondary"><i class="fas fa-search"></i></button>
     </div>
-    <div class="col-12 col-sm-4">
-      <div>
-        <a href="">Registro</a>
-        <span>o</span>
-        <button>Login</button>
+    <div class="col-7 col-sm-4 divOpciones d-flex align-self-center justify-content-center">
+      <div *ngIf="estaLogueado(); else noLogueado">
+        <i class="fas fa-cart-plus inconsLogged"></i>
+        <i class="fas fa-user inconsLogged"></i>
+        <i class="fas fa-cogs inconsLogged"></i>
       </div>
-      <div>
-        <i class="fas fa-cart-plus"></i>
-        <i class="fas fa-user"></i>
-        <i class="far fa-cog"></i>
-      </div>
+      <ng-template #noLogueado>
+        <a href="" class="d-flex align-self-center">Registro</a>
+        <span class="d-flex align-self-center"> &nbsp; o &nbsp; </span>
+        <button class="btn btn-success">Login</button>
+      </ng-template>
     </div>
   </div>
 </header>
