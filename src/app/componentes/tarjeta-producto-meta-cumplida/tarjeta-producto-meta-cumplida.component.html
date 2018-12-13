@@ -1,3 +1,19 @@
-<p>
-  tarjeta-producto-meta-cumplida works!
-</p>
+<div class="card-producto">
+  <figure>
+    <img src='http://nutritivoz.com/assets/img/products/2896_1_20181021202831.jpg'/>
+  </figure>
+  <div class="content">
+    <p class="title">Vasos de cartón</p>
+  </div>
+  <hr>  
+    <div class="rating">
+      <i [className]="1 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+      <i [className]="2 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+      <i [className]="3 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+      <i [className]="4 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+      <i [className]="5 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+    </div>
+    <div class="pay-wrapper">
+      <button class="pay">Pagar</button>
+    </div>    
+</div>
