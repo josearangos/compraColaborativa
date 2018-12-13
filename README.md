@@ -1,6 +1,6 @@
 # CompraColaborativa
 
-#Tema Boostrap https://bootswatch.com/flatly/
+# Tema Boostrap https://bootswatch.com/flatly/
 
 
 
