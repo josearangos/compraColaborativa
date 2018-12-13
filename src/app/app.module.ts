@@ -14,6 +14,8 @@ import { HeaderComponent } from "./componentes/header/header.component";
 import { FooterComponent } from "./componentes/footer/footer.component";
 import { PincipalComponent } from "./paginas/pincipal/pincipal.component";
 import { NgSimpleAutocompleteModule } from "ng-simple-autocomplete2";
+import { NgxSpinnerModule } from "ngx-spinner";
+import { CardsService } from "./servicios/cards.service";
 
 @NgModule({
   declarations: [
@@ -29,8 +31,13 @@ import { NgSimpleAutocompleteModule } from "ng-simple-autocomplete2";
     FooterComponent,
     PincipalComponent
   ],
-  imports: [NgSimpleAutocompleteModule, BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    NgxSpinnerModule,
+    NgSimpleAutocompleteModule,
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

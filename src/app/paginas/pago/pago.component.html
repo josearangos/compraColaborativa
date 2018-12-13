@@ -1,7 +1,7 @@
 <nav class=" text-center navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#"
-    ><i class="far fa-money-bill-alt"></i>
-    <h3>Zona de pago</h3></a
+    ><i class=" far fa-money-bill-alt"> </i>
+    <h3 class="float-left">Zona de pago</h3></a
   >
 </nav>
 <div>
@@ -48,8 +48,16 @@
 
     <div class="row justify-content-md-center">
       <div class="col">
-        <button type="button" class="btn btn-primary btn-lg ">Pagar</button>
+        <button (click)="pagar()" type="button" class="btn btn-primary btn-lg ">
+          <i class="fas fa-credit-card"></i> Pagar
+        </button>
       </div>
     </div>
   </div>
+  <ngx-spinner
+    bdColor="rgba(51, 51, 51, 0.8)"
+    size="large"
+    color="#fff"
+    type="ball-climbing-dot"
+  ></ngx-spinner>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-pago",
@@ -6,9 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./pago.component.css"]
 })
 export class PagoComponent implements OnInit {
-  constructor() {}
+  constructor(private spinner: NgxSpinnerService) {}
 
   ngOnInit() {}
+
+  
+
   placeholder = "Direccion";
   valorAPagar = 152.52;
   data = [
@@ -35,24 +39,28 @@ export class PagoComponent implements OnInit {
     }
   ];
 
-
-  cards=[
-    "",
-    "",
-    "",
-    "",
-  ]
-
-
+  cards = ["", "", "", ""];
 
   returnFieldFromObject(item) {
-    // item represent one object in above data array.
-    // you can return any field that will be use to populate drop-down
+ 
     return item.place[0].value;
   }
   // Selected object
   selectedObject(item) {
     // do something with selected item (object)
     console.log(item);
+  }
+
+
+
+
+
+  pagar() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
   }
 }
