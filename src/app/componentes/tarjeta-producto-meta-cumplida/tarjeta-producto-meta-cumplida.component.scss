@@ -1,0 +1,100 @@
+  $myProgessbar: 1%;
+  $totalProgressbar: 1%;
+
+.card-producto {
+  border-radius: 2%;
+  margin: 10px;
+  max-width: 300px;
+  height: auto;
+  overflow: hidden;
+  flex-basis: 30%;
+  background-color: #f7f7f7;
+  &:hover {
+    box-shadow: 1px 1px 4px #151E27;
+    cursor: pointer;
+  }
+}
+.content {
+  padding: 0 1rem 1rem;
+}
+.from {
+  display: inline-block;
+}
+.to {
+  display: inline-block; 
+}
+.picture {
+  max-width: 100%;
+  max-height: 100%;
+}
+.rating {
+  margin: 10px;
+  .fa-star {
+    color: #ffc107;
+  }
+}
+
+.pay-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #151E27;
+
+  .currency {
+    font-size: .75em;
+    line-height: 1.15em;
+  }
+
+  .amount {
+    line-height: 100%;
+    font-size: 1.1em;
+  }
+}
+
+hr {
+  height: 5px;
+  width: 90%;
+  color: black;
+}
+
+.pay {
+  color: #151E27;
+  background-color: #ffffff;
+  font-size: .75em;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: .25rem 1.5rem;
+  transition: background-color .25s ease-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #151E27;
+    color: #ffffff;
+  }
+}
+
+.fillbar {
+  margin: 10px;
+  background-color: #b7b3b3;
+  border-radius: 5px;
+  width: 95%;  
+  height: 10px;
+}
+.totalProgressbar {
+  background-color: #435b72;
+  border-radius: 5px;
+  width: 0%;
+  height: 10px;
+  transition: all ease 1s;
+}
+.myProgressbar {
+  background-color: #149A80;
+  border-radius: 5px;
+  width: 0%;
+  height: 10px;
+  transition: all ease 1s;
+}
