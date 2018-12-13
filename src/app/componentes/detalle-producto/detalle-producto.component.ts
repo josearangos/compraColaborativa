@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-detalle-producto',
   templateUrl: './detalle-producto.component.html',
-  styleUrls: ['./detalle-producto.component.css']
+  styleUrls: ['./detalle-producto.component.less']
 })
 export class DetalleProductoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  	@Input() product: any; 
+    constructor() {}
+    ngOnInit() {
+    }
 }
