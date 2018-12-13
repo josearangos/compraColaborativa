@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import routesObject from '../../data/dataJson'
 
 @Component({
   selector: 'app-header',
@@ -12,11 +11,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  estaLogueado(){
-    return routesObject.user.isActive;
-  }
-
-  login(){
-    routesObject.user.isActive = true;
-  }
 }
