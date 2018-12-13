@@ -1,3 +1,25 @@
-<p>
-  header works!
-</p>
+<header class="bg-primary">
+  <div class="row divs">
+    <div class="col-5 col-sm-3 col-md-2 divLogo d-flex align-self-center justify-content-center">
+      <div class="divImg">
+        <img src="../../../assets/dejavu-white-bold.png" alt="Logo">
+      </div>
+    </div>
+    <div class="col-12 col-sm-5 col-md-6 divBusqueda d-flex align-self-center">
+      <input type="text" class="form-control inputAppSearch">
+      <button class="buttonSearch float-left btn btn-secondary"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="col-7 col-sm-4 divOpciones d-flex align-self-center justify-content-center">
+      <div *ngIf="estaLogueado(); else noLogueado">
+        <i class="fas fa-cart-plus inconsLogged"></i>
+        <i class="fas fa-user inconsLogged"></i>
+        <i class="fas fa-cogs inconsLogged"></i>
+      </div>
+      <ng-template #noLogueado>
+        <a href="" class="d-flex align-self-center">Registro</a>
+        <span class="d-flex align-self-center"> &nbsp; o &nbsp; </span>
+        <button (click)="login()" class="btn btn-success">Login</button>
+      </ng-template>
+    </div>
+  </div>
+</header>

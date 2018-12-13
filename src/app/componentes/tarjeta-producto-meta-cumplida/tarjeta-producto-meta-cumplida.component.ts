@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import routesObject from '../../data/dataJson';
 
 @Component({
   selector: 'app-tarjeta-producto-meta-cumplida',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tarjeta-producto-meta-cumplida.component.scss']
 })
 export class TarjetaProductoMetaCumplidaComponent implements OnInit {
-  @Input() product: any;
+  @Input() product = routesObject.products[0];
 
   constructor() { }
 

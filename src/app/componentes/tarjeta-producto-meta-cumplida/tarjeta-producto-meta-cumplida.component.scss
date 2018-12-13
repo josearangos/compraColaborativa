@@ -1,26 +1,51 @@
 .card-producto {
+  border-radius: 2%;
   margin: 10px;
-  max-width: 500px;
+  max-width: 300px;
+  height: auto;
+  overflow: hidden;
   flex-basis: 30%;
-  background-color: white;
+  background-color: #f7f7f7;
   &:hover {
     box-shadow: 1px 1px 4px #151E27;
+    cursor: pointer;
   }
 }
 .content {
   padding: 0 1rem 1rem;
 }
 
+.picture {
+  max-width: 100%;
+  max-height: 100%;
+}
 .rating {
+  margin: 10px;
   .fa-star {
     color: #ffc107;
-
   }
 }
 
 .pay-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #151E27;
+
+  .currency {
+    font-size: .75em;
+    line-height: 1.15em;
+  }
+
+  .amount {
+    line-height: 100%;
+    font-size: 1.1em;
+  }
 }
 
 hr {
@@ -38,9 +63,21 @@ hr {
   padding: .25rem 1.5rem;
   transition: background-color .25s ease-out;
   cursor: pointer;
-
   &:hover {
     background-color: #151E27;
     color: #ffffff;
   }
+}
+
+.fillbar {
+  margin: 10px;
+  background-color: #b7b3b3;
+  width: 95%;  
+  height: 10px;
+}
+.progressbar {
+  background-color: #435b72;
+  width: 50%;
+  height: 10px;
+  transition: all ease 1s;
 }

@@ -1,11 +1,15 @@
 <div class="card-producto">
-  <figure>
-    <img src='http://nutritivoz.com/assets/img/products/2896_1_20181021202831.jpg'/>
+  <figure class="ml-3 mr-3">
+    <img class="picture" src="{{product.picture}}"/>
   </figure>
   <div class="content">
-    <p class="title">Vasos de cartón</p>
+    <p class="title">{{product.name}}</p>
+    <hr>
   </div>
-  <hr>  
+  <div class="price">
+    <span class="currency">COP$ </span>
+    <span class="amount">{{product.price}}</span>
+  </div> 
     <div class="rating">
       <i [className]="1 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
       <i [className]="2 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
@@ -13,7 +17,11 @@
       <i [className]="4 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
       <i [className]="5 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
     </div>
+    <div class="fillbar my-1 mx-2">
+      <div class="progressbar">
+      </div>
+    </div>
     <div class="pay-wrapper">
-      <button class="pay">Pagar</button>
+      <button class="pay mb-2 mt-2">Pagar</button>
     </div>    
 </div>

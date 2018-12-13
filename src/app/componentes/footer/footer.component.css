@@ -1,0 +1,35 @@
+footer{
+    padding: 2em 1em;
+    color: #fff;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+.liSocialNetworks{
+    margin: 0.5em 0.5em;
+}
+.liSocialNetworks, .liSocialNetworks a{
+    display: inline-block;
+}
+.liSocialNetworks i{
+    font-size: x-large;
+    color: #fff;
+}
+a{
+    color: #fff;
+}
+.font-size-small{
+    font-size: small;
+}
+.listLink li{
+    margin-bottom: 1em;
+}
+h6{
+    font-weight: bold;
+}
+.componentCenter{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}
