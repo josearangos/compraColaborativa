@@ -2,7 +2,7 @@
 
 # Tema Boostrap https://bootswatch.com/flatly/
 
-
+# Iconos https://fontawesome.com/icons?d=gallery
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
