@@ -1,7 +1,7 @@
 export default {
     "user": {
         "name": "María Isabel Tabares Bernal",
-        "isActive": false,
+        "isActive": true,
         "products": [
             {
                 "id": 0,
@@ -19,7 +19,8 @@ export default {
     },
     "products":[
         {
-            "name": "Nombre Producto",
+            "id":1,
+            "name": "Nombre Producto 1",
             "rating": 4,
             "price": "10.000",
             "minimunAmount": 8000,
@@ -42,7 +43,8 @@ export default {
             ]
         },
         {
-            "name": "Lorem ipsum dolor",
+            "id":2,
+            "name": "Nomrbe 2",
             "rating": 4,
             "price": "10.000",
             "minimunAmount": 400,
@@ -65,7 +67,8 @@ export default {
             ]
         },
         {
-            "name": "Lorem ipsum dolor",
+            "id":3,
+            "name": "Nobre 3",
             "rating": 4,
             "price": "10.000",
             "minimunAmount": 900,
