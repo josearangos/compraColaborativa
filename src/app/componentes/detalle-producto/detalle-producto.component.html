@@ -1,3 +1,65 @@
-<p>
-  detalle-producto works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detallesModal">
+				Detalles
+			</button>	
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="detallesModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+        	<div class="col-xs-12 col-md-6">
+        		<img src="{{product.picture}}" alt="" class="img-fluid">
+        	</div>
+        	<div class="col-xs-12 col-md-6">
+				<h2>{{product.name}}</h2>
+				<div class="rating">
+					<i [className]="1 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+					<i [className]="2 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+					<i [className]="3 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+					<i [className]="4 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+					<i [className]="5 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
+				</div>
+				<p class="price text-right">
+					$ {{product.price}} por unidad
+				</p>
+				<p class="description">{{product.description}}</p>				
+        	</div>
+        </div>
+        <hr>
+        <h3>Reseñas</h3>
+        <div *ngFor="let review of product.reviews" class="review">
+        	<div class="row">
+        		<div class="col-xs-12 col-md-12">
+        			<div class="title">
+	        			<div class="logoHolder"><img src="{{review.logo}}" class="logo"></div><h4>{{review.user}}</h4>
+					</div>
+					<div class="rating">
+						<i [className]="1 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+						<i [className]="2 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+						<i [className]="3 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+						<i [className]="4 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+						<i [className]="5 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+					</div>        		
+				</div>
+				<div class="col-xs-12 col-md-12">
+        			{{review.comment}}
+				</div>
+        	</div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

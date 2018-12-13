@@ -1,0 +1,53 @@
+i{
+    color: #fff;
+    font-size: larger;
+    cursor: pointer;
+}
+.inconsLogged{
+    margin: 0px 1em 0px 1em;
+}
+.form-control {
+    width: calc(100% - 2em);
+    float: left;
+}
+.inputAppSearch{
+    max-width: 300px;
+}
+.buttonSearch{
+    width: 2em;
+    height: calc(2.15625rem + 2px);
+    padding: 0px;
+}
+.divOpciones a, .divOpciones span{
+    color: #fff !important;
+}
+header{
+    padding: 0.5em 0px;
+}
+.divImg{
+    width: 100%;
+    max-width: 50px;
+}
+.divImg img{
+    width: 100%;
+    height: auto;
+}
+@media (max-width: 576px){
+    .divs{
+        display: flex;
+    }
+    .divBusqueda{
+        order: 3;
+        display: flex;
+        justify-content: center;
+        margin-top: 0.3em;
+    }
+    .inconsLogged{
+        margin: 0px 0.5em 0px 0.5em;
+    }
+}
+@media (max-width: 350px){
+    .inputAppSearch{
+        max-width: calc(90% - 2em);
+    }
+}

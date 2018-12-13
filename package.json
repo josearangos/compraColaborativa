@@ -20,8 +20,14 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "^7.0.4",
+    "@types/jquery": "^3.3.25",
+    "bootstrap": "^4.1.3",
     "core-js": "^2.5.4",
+<<<<<<< HEAD
     "ng-simple-autocomplete2": "^1.0.3",
+=======
+    "jquery": "^3.3.1",
+>>>>>>> 927540d16e9fe8cadc693182343d32e35d8194ad
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
