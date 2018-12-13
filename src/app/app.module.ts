@@ -12,9 +12,10 @@ import { CarritoCompraComponent } from './paginas/carrito-compra/carrito-compra.
 import { PagoComponent } from './paginas/pago/pago.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { PincipalComponent } from './paginas/pincipal/pincipal.component';
 
 @NgModule({
-  declarations: [AppComponent, TarjetaProductoInicialComponent, TarjetaProductoParticipandoComponent, TarjetaProductoMetaCumplidaComponent, TarjetaProductoCompradoComponent, DetalleProductoComponent, CarritoCompraComponent, PagoComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, TarjetaProductoInicialComponent, TarjetaProductoParticipandoComponent, TarjetaProductoMetaCumplidaComponent, TarjetaProductoCompradoComponent, DetalleProductoComponent, CarritoCompraComponent, PagoComponent, HeaderComponent, FooterComponent, PincipalComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
