@@ -32,6 +32,7 @@ import { CardsService } from "./servicios/cards.service";
     FooterComponent,
     PincipalComponent
   ],
+<<<<<<< HEAD
   imports: [
     NgxSpinnerModule,
     NgSimpleAutocompleteModule,
@@ -39,6 +40,13 @@ import { CardsService } from "./servicios/cards.service";
     AppRoutingModule
   ],
   providers: [CardsService],
+=======
+  imports: [NgSimpleAutocompleteModule,
+    BrowserModule,
+    AppRoutingModule,
+    StarRatingModule.forRoot()],
+  providers: [],
+>>>>>>> origin/carrito
   bootstrap: [AppComponent]
 })
 export class AppModule {}
