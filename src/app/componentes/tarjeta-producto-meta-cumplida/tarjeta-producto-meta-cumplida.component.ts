@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarjeta-producto-meta-cumplida',
   templateUrl: './tarjeta-producto-meta-cumplida.component.html',
-  styleUrls: ['./tarjeta-producto-meta-cumplida.component.css']
+  styleUrls: ['./tarjeta-producto-meta-cumplida.component.scss']
 })
 export class TarjetaProductoMetaCumplidaComponent implements OnInit {
+  @Input() product: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+  pay(e) {
+    e.stopPropagation();
+    window.location.href = "https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/authorize?client_id=92d5af2c-e6c1-49e5-8135-7abc3c970d03&response_type=code&scope=Card-credit:read:user&redirect_uri=http://localhost:4200/pago";
+  }
+
+  offer() {}
+  increaseOffer() {}
+  review() {}
+
+  convertValue(product) {
+    console.log(product)
+  return "50%"
+  }
+
 
 }

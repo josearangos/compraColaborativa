@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrito-compra.component.css']
 })
 export class CarritoCompraComponent implements OnInit {
-
+  productos: any; // por el momento
   constructor() { }
 
   ngOnInit() {
