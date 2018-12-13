@@ -7,6 +7,8 @@
 # Spinner Angular https://napster2210.github.io/ngx-spinner/
 https://www.npmjs.com/package/ngx-spinner
 
+https://www.npmjs.com/package/ng2-simple-autocomplete
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
 ## Installation
