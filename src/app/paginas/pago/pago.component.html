@@ -48,16 +48,46 @@
 
     <div class="row justify-content-md-center">
       <div class="col">
-        <button (click)="pagar()" type="button" class="btn btn-primary btn-lg ">
+        <button
+          (click)="pagarr()"
+          type="button"
+          class="btn btn-primary btn-lg "
+        >
           <i class="fas fa-credit-card"></i> Pagar
         </button>
       </div>
     </div>
   </div>
+
   <ngx-spinner
     bdColor="rgba(51, 51, 51, 0.8)"
     size="large"
     color="#fff"
     type="ball-climbing-dot"
   ></ngx-spinner>
+
+  <swal
+    #successFull
+    title="Exito "
+    text="Pago Exitoso"
+    type="success"
+    [showCancelButton]="false"
+    [focusCancel]="true"
+    [showConfirmButton]="false"
+    [timer]="1000"
+  >
+  </swal>
+  <button class="btnsucces hide" (click)="successFull.show()">bien</button>
+  <swal
+    #error
+    title="Error "
+    text="Error al pagar"
+    type="error"
+    [showCancelButton]="false"
+    [focusCancel]="true"
+    [showConfirmButton]="false"
+    [timer]="1000"
+  >
+  </swal>
+  <button class="btnerror hide" (click)="error.show()">Error</button>
 </div>
