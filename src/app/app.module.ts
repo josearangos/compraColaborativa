@@ -20,6 +20,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { SweetAlert2Module } from "@toverux/ngx-sweetalert2";
 import { CardsService } from "./servicios/cards.service";
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { FormsModule } from '@angular/forms';
     SweetAlert2Module.forRoot(),
     NgxSpinnerModule,
     NgSimpleAutocompleteModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   providers: [CardsService],
   bootstrap: [AppComponent]

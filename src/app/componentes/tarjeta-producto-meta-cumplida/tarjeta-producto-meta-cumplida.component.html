@@ -19,9 +19,11 @@
       <i [className]="5 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
     </div>
     <div class="fillbar my-1 mx-2">
-      <div class="totalProgressbar" [style.width]="convertCurrentValue(product)"></div>
+      <div class="totalProgressbar" [style.width]="convertCurrentValue(product)" mat-raised-button
+        [matTooltip]="'Total ordenados:'+product.currentTotalAmount+' unidades'"></div>
       <div *ngIf="product.status != 'no-offer'">
-        <div class="myProgressbar" [style.width]="convertMyValue(product)"></div>        
+        <div class="myProgressbar" [style.width]="convertMyValue(product)" mat-raised-button
+        [matTooltip]="'Mi orden: '+product.myAmount+' unidades'"></div>        
       </div>      
     </div>
     <div class="goalHolder">
