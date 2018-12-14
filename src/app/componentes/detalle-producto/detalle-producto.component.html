@@ -50,8 +50,21 @@
       <div class="modal-footer">
 				<label for="amountProducto">Cantidad:</label>
 				<input type="number" [(ngModel)]="amount" id="amountProducto" class="form-control">
-        <button type="button" (click)="sendOrder()" class="btn btn-success" data-dismiss="modal">Pedir</button>
+				<button type="button" (click)="sendOrder()" class="btn btn-success" data-dismiss="modal">Pedir</button>
+				<button style="visibility: hidden;" class="btnsucces hide" (click)="successFull.show()"></button>
       </div>
     </div>
   </div>
 </div>
+<swal
+    #successFull
+    title="Exito "
+    text="Pago Exitoso"
+    type="success"
+    [showCancelButton]="false"
+    [focusCancel]="true"
+    [showConfirmButton]="false"
+    [timer]="1000"
+  >
+  </swal>
+  

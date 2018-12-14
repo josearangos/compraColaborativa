@@ -9,14 +9,20 @@ declare var $ :any;
   templateUrl: './detalle-producto.component.html',
   styleUrls: ['./detalle-producto.component.less']
 })
+
 export class DetalleProductoComponent implements OnInit {
     @Input() product: any; 
-    amount: 0
+    amount = 0
     constructor() {}
     ngOnInit() {
     }
 
     sendOrder(){
-      console.log(this.amount)
+      for (const iterator of dataJson.products) {
+        if(this.product["id"] == iterator.id){
+          iterator.myAmount = this.amount;
+        }
+      }
+      $(".btnsucces").click();
     }
 }
