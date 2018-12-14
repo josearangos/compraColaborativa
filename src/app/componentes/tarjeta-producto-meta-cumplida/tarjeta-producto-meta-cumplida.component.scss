@@ -1,5 +1,5 @@
-  $myProgessbar: 1%;
-  $totalProgressbar: 1%;
+  $myProgessbar: 5%;
+  $totalProgressbar: 5%;
 
 .card-producto {
   border-radius: 2%;
@@ -78,6 +78,8 @@ hr {
 }
 
 .fillbar {
+  position: relative;
+  z-index: 0;
   margin: 10px;
   background-color: #b7b3b3;
   border-radius: 5px;
@@ -85,16 +87,30 @@ hr {
   height: 10px;
 }
 .totalProgressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
   background-color: #435b72;
   border-radius: 5px;
   width: 0%;
   height: 10px;
   transition: all ease 1s;
+  box-shadow: inset 0 -14px 22px -11px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 -14px 22px -11px gba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 -14px 22px -11px rgba(0, 0, 0, 0.5);
 }
 .myProgressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   background-color: #149A80;
   border-radius: 5px;
   width: 0%;
   height: 10px;
   transition: all ease 1s;
+  box-shadow: inset 0 -14px 22px -11px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 -14px 22px -11px gba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 -14px 22px -11px rgba(0, 0, 0, 0.5);
 }

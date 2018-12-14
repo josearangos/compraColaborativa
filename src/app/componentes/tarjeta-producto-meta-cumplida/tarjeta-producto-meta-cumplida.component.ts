@@ -24,8 +24,10 @@ export class TarjetaProductoMetaCumplidaComponent implements OnInit {
   review() {}
 
   convertValue(product) {
-    console.log(product)
-  return "50%"
+    console.log((product.myAmount * 100) / product.minimunAmount);
+    const value = (product.myAmount * 100) / product.minimunAmount;
+    console.log(value.toString());
+    return value.toString() + '%';
   }
 
 
