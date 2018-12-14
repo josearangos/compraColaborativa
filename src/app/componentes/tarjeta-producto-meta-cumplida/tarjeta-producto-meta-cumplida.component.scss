@@ -10,28 +10,28 @@
 .no-offer {  
   background-color: #f7f7f7;  
   &:hover {
-    box-shadow: 0px 0px 1px #151E27;
+    box-shadow: 0px 0px 15px #f7f7f7;
     cursor: pointer;
   }
 }
-.offer {  
+.review {  
   background-color: rgba(0, 10, 50, 0.2);  
   &:hover {
-    box-shadow: 0px 0px 1px #151E27;
+    box-shadow: 0px 0px 15px rgba(0, 10, 50, 0.2);
     cursor: pointer;
   }
 }
 .pay {  
   background-color: rgba(20, 154, 128, 0.2);
   &:hover {
-    box-shadow: 1px 1px 4px #151E27;
+    box-shadow: 0px 0px 15px rgba(20, 154, 128, 0.2);
     cursor: pointer;
   }
 }
-.review {
+.offer {
   background-color: rgba(212, 134, 1, 0.2);
   &:hover {
-    box-shadow: 1px 1px 4px #151E27;
+    box-shadow: 0px 0px 15px rgba(212, 134, 1, 0.2);
     cursor: pointer;
   }
 }

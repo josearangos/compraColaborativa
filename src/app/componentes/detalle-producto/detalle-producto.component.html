@@ -22,31 +22,39 @@
               $ {{product.price}} por unidad
             </p>
             <p class="description">{{product.description}}</p>
+            <h6 class="text-right" *ngIf="product.status == 'pay' || product.status == 'review'">
+              <strong>Mi Pedido: {{product.myAmount}} unidades</strong>
+            </h6>
+            <h6 class="totalPrice text-right" *ngIf="totalPrice">
+              <strong>Precio total: {{totalPrice}}</strong>            
+            </h6>
           </div>
         </div>
-        <hr>
-        <h3>Reseñas</h3>
-        <div *ngFor="let review of product.reviews" class="review">
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="title">
-                <div class="logoHolder"><img src="{{review.logo}}" class="logo"></div>
-                <h4>{{review.user}}</h4>
+        <div *ngIf="product.reviews.length > 0">
+          <hr>
+          <h3>Reseñas</h3>
+          <div *ngFor="let review of product.reviews" class="review">
+            <div class="row">
+              <div class="col-xs-12 col-md-12">
+                <div class="title">
+                  <div class="logoHolder"><img src="{{review.logo}}" class="logo"></div>
+                  <h4>{{review.user}}</h4>
+                </div>
+                <div class="rating">
+                  <i [className]="1 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                  <i [className]="2 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                  <i [className]="3 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                  <i [className]="4 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                  <i [className]="5 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+                </div>
               </div>
-              <div class="rating">
-                <i [className]="1 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
-                <i [className]="2 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
-                <i [className]="3 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
-                <i [className]="4 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
-                <i [className]="5 <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
+              <div class="col-xs-12 col-md-12">
+                {{review.comment}}
               </div>
-            </div>
-            <div class="col-xs-12 col-md-12">
-              {{review.comment}}
             </div>
           </div>
         </div>
-        <div class="writeReview">
+        <div class="writeReview" *ngIf="product.status == 'review'">
           <h5>Escribe tu opinión sobre este producto:</h5>
               <div class="rating">
                 <i class="far fa-star" id="1"></i>
@@ -59,14 +67,29 @@
            <button type="button" class="btn btn-success" data-dismiss="modal">Enviar Opinion</button>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" *ngIf="product.status == 'no-offer'">
         <label for="amountProducto">Cantidad:</label>
-        <input type="number" [(ngModel)]="amount" id="amountProducto" class="form-control">
+        <input type="number" (keyup)="updatePrice()" [value]="product.myAmount" id="amountProducto" class="form-control">
         <button type="button" (click)="sendOrder()" class="btn btn-success" data-dismiss="modal">Pedir</button>
         <button style="visibility: hidden;" class="btnsucces hide" (click)="successFull.show()"></button>
       </div>
+      <div class="modal-footer" *ngIf="product.status == 'offer'">
+        <label for="amountProducto">Cantidad:</label>
+        <input type="number" (keyup)="updatePrice()" [value]="product.myAmount" id="amountProducto" class="form-control">
+        <button type="button" (click)="sendOrder()" class="btn btn-success" data-dismiss="modal">Pedir Más</button>
+        <button style="visibility: hidden;" class="btnsucces hide" (click)="successFull.show()"></button>
+      </div>
+      <div class="modal-footer" *ngIf="product.status == 'review'">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      <div class="modal-footer" *ngIf="product.status == 'pay'">
+        <a href="https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/authorize?client_id=92d5af2c-e6c1-49e5-8135-7abc3c970d03&response_type=code&scope=Card-credit:read:user&redirect_uri=http://localhost:4200/pago">
+          <button type="button" class="btn btn-success">Pagar</button>
+        </a>
+      </div>
+      
     </div>
   </div>
 </div>
-<swal #successFull title="Exito " text="Pago Exitoso" type="success" [showCancelButton]="false" [focusCancel]="true" [showConfirmButton]="false" [timer]="1000">
+<swal #successFull title="Exito " text="Pedido Exitoso" type="success" [showCancelButton]="false" [focusCancel]="true" [showConfirmButton]="false" [timer]="1000">
 </swal>

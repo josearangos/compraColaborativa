@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,   OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import dataJson from '../../data/dataJson'
 
 declare var jquery:any;
@@ -11,26 +11,42 @@ declare var $ :any;
 })
 
 export class DetalleProductoComponent implements OnInit {
-    @Input() product: any; 
-    amount = 0
+    @Input() product: any;
+    totalPrice:string; 
     constructor() {}
     ngOnInit() {
-      for (const iterator of dataJson.products) {
-        if(this.product["id"] == iterator.id){
-          this.amount = iterator.myAmount;
-        }
-      }
+      this.totalPrice = "";
+      this.updatePrice();
     }
-
+    ngOnChanges() {
+      this.updatePrice();
+    }
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    updatePrice(){
+      let intPrice = parseInt(this.product.price.replace('.',''),10);
+      let total;
+        total = intPrice * this.product.myAmount;
+      if(this.product.status == "offer" || this.product.status == "no-offer"){
+        total = intPrice * parseInt($('#amountProducto').val(),10); 
+      }
+      if(isNaN(total)){
+        total = 0;
+      }
+      this.totalPrice = "$"+this.numberWithCommas(total);
+    }
     sendOrder(){
       let aux = 0;
       for (const iterator of dataJson.products) {
         if(this.product["id"] == iterator.id){
-          aux = this.amount - iterator.myAmount;
+          aux = parseInt($('#amountProducto').val(),10) - iterator.myAmount;
           iterator.currentTotalAmount += aux;
-          iterator.myAmount = this.amount;
+          iterator.myAmount = parseInt($('#amountProducto').val(),10);
+          iterator.status = "offer";
         }
       }
       $(".btnsucces").click();
+      $('.detallesModal').modal('hide');
     }
 }

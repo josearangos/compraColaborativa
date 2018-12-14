@@ -8,6 +8,7 @@
 		<div class="col-xs-12">
 			<div class="btn-group filter" role="group">
 			  <button type="button" (click)="filterBy('all')" class="btn btn-secondary" [ngClass]="currentFilter === 'all' ? 'active' : ''">Todo</button>
+			  <button type="button" (click)="filterBy('review')" class="btn btn-secondary" [ngClass]="currentFilter === 'review' ? 'active' : ''">Completadas</button>
 			  <button type="button" (click)="filterBy('pay')" class="btn btn-secondary" [ngClass]="currentFilter === 'pay' ? 'active' : ''">Mis Compras</button>
 			  <button type="button" (click)="filterBy('offer')" class="btn btn-secondary" [ngClass]="currentFilter === 'offer' ? 'active' : ''">Ofertadas</button>
 			  <button type="button" (click)="filterBy('no-offer')" class="btn btn-secondary" [ngClass]="currentFilter === 'no-offer' ? 'active' : ''">Productos</button>
