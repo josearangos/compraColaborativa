@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { CardsService } from "./../../servicios/cards.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import dataJson from '../../data/dataJson'
 
 declare var jquery: any;
 declare var $: any;
@@ -55,6 +56,14 @@ export class PagoComponent implements OnInit {
     this.cardsService.transaction(this.transactionModel).subscribe(
       data => {
         ///Exito
+        for (const iterator of dataJson.products) {
+          if(localStorage.getItem('payId') == iterator.id){
+            iterator.status = "review";
+            iterator.status_code = 1;
+            break;
+          }
+        }
+        localStorage.setItem('products',JSON.stringify({"user":{"isActive":true,"name":""},products:dataJson.products}));
         $(".btnsucces").click();
         this.spinner.hide();
       },
