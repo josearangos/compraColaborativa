@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import dataJson from '../../data/dataJson'
 
 declare var jquery:any;
 declare var $ :any;
@@ -9,8 +10,13 @@ declare var $ :any;
   styleUrls: ['./detalle-producto.component.less']
 })
 export class DetalleProductoComponent implements OnInit {
-  	@Input() product: any; 
+    @Input() product: any; 
+    amount: 0
     constructor() {}
     ngOnInit() {
+    }
+
+    sendOrder(){
+      console.log(this.amount)
     }
 }
