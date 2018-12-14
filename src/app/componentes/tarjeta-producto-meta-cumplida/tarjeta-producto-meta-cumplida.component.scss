@@ -1,3 +1,6 @@
+  $myProgessbar: 1%;
+  $totalProgressbar: 1%;
+
 .card-producto {
   border-radius: 2%;
   margin: 10px;
@@ -14,7 +17,12 @@
 .content {
   padding: 0 1rem 1rem;
 }
-
+.from {
+  display: inline-block;
+}
+.to {
+  display: inline-block; 
+}
 .picture {
   max-width: 100%;
   max-height: 100%;
@@ -72,12 +80,21 @@ hr {
 .fillbar {
   margin: 10px;
   background-color: #b7b3b3;
+  border-radius: 5px;
   width: 95%;  
   height: 10px;
 }
-.progressbar {
+.totalProgressbar {
   background-color: #435b72;
-  width: 50%;
+  border-radius: 5px;
+  width: 0%;
+  height: 10px;
+  transition: all ease 1s;
+}
+.myProgressbar {
+  background-color: #149A80;
+  border-radius: 5px;
+  width: 0%;
   height: 10px;
   transition: all ease 1s;
 }
