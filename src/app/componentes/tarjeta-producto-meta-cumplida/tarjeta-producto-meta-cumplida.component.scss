@@ -16,13 +16,22 @@
   }
 }
 .content {
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 1rem ;
+  padding-bottom: 0.5rem;
+  hr{
+    margin-bottom: 0;
+  }
 }
 .from {
-  display: inline-block;
+  display: block;
+  margin-left: 10px;
 }
 .to {
-  display: inline-block; 
+  display: block; 
+  margin-right: 10px;
+}
+.goalHolder{
+  height:25px;
 }
 .picture {
   max-width: 100%;

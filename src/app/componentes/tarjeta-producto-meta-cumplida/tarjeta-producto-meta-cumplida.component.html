@@ -24,9 +24,9 @@
         <div class="myProgressbar" [style.width]="convertValue(product)"></div>        
       </div>      
     </div>
-    <div>
-      <span class="from pull-left">0</span>
-      <span class="to pull-right">{{product.minimunAmount}}</span>
+    <div class="goalHolder">
+      <span class="from float-left">0</span>
+      <span class="to float-right">meta: {{product.minimunAmount}}</span>
     </div>  
     <div *ngIf="product.status === 'no-offer'" class="pay-wrapper">
       <button class="pay mb-2 mt-2" (click)="offer($event)">Ofertar</button>
