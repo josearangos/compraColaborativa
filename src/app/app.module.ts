@@ -16,7 +16,10 @@ import { FooterComponent } from "./componentes/footer/footer.component";
 import { PincipalComponent } from "./paginas/pincipal/pincipal.component";
 import { NgSimpleAutocompleteModule } from "ng-simple-autocomplete2";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HttpClientModule } from "@angular/common/http";
+import { SweetAlert2Module } from "@toverux/ngx-sweetalert2";
 import { CardsService } from "./servicios/cards.service";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,12 @@ import { CardsService } from "./servicios/cards.service";
     PincipalComponent
   ],
   imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    SweetAlert2Module.forRoot(),
     NgxSpinnerModule,
     NgSimpleAutocompleteModule,
-    BrowserModule,
     AppRoutingModule
   ],
   providers: [CardsService],
