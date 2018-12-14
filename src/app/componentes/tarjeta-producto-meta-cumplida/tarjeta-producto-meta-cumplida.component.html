@@ -19,9 +19,10 @@
       <i [className]="5 <= product.rating ? 'fas fa-star' : 'far fa-star'"></i>
     </div>
     <div class="fillbar my-1 mx-2">
-      <div class="totalProgressbar">
-      </div>
-      <div class="myProgressbar" [style.width]="convertValue(product)"></div>
+      <div class="totalProgressbar"></div>
+      <div *ngIf="product.status != 'no-offer'">
+        <div class="myProgressbar" [style.width]="convertValue(product)"></div>        
+      </div>      
     </div>
     <div>
       <span class="from pull-left">0</span>
