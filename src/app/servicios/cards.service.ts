@@ -12,6 +12,8 @@ export class CardsService {
   endPointCards =
     "https://sbapi.bancolombia.com/hackathon/v1/operations/product-specific/cards";
 
+  endPointCardDetail =
+    "https://sbapi.bancolombia.com/hackathon/v1/operations/product-specific/cards/credit/";
   transaction(transactionModel) {
     let headers = new HttpHeaders();
     headers = headers.append("Content-Type", "application/json");
@@ -38,8 +40,6 @@ export class CardsService {
     body.set("code", codigo);
     body.set("grant_type", "authorization_code");
 
-    console.log(body);
-
     return this.httpClient.post(
       `${this.endPointToken}`,
       body.toString(),
@@ -49,8 +49,20 @@ export class CardsService {
 
   cards(token) {
     const headers = new HttpHeaders({
-      authorization: "Bearer " + token
+      authorization: "Bearer " + token,
+      "apim-debug": "true",
+      "cache-control": "no-store"
     });
     return this.httpClient.get(`${this.endPointCards}`, { headers });
+  }
+
+  cardDetail(token, idCard) {
+    const headers = new HttpHeaders({
+      authorization: "Bearer " + token
+    });
+    return this.httpClient.get(
+      `${this.endPointCardDetail}` + idCard + "/detail",
+      { headers }
+    );
   }
 }

@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { StarRatingModule } from 'angular-star-rating';
+import { StarRatingModule } from "angular-star-rating";
 import { AppComponent } from "./app.component";
 import { TarjetaProductoInicialComponent } from "./componentes/tarjeta-producto-inicial/tarjeta-producto-inicial.component";
 import { TarjetaProductoParticipandoComponent } from "./componentes/tarjeta-producto-participando/tarjeta-producto-participando.component";
@@ -19,7 +19,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule } from "@angular/common/http";
 import { SweetAlert2Module } from "@toverux/ngx-sweetalert2";
 import { CardsService } from "./servicios/cards.service";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
     NgxSpinnerModule,

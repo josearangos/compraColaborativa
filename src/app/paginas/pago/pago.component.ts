@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { CardsService } from "./../../servicios/cards.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 declare var jquery: any;
 declare var $: any;
 
@@ -19,21 +19,19 @@ export class PagoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.payForm = new FormGroup({
+      card: new FormControl(null, [Validators.required])
+    });
+    this.valorAPagar = localStorage.getItem("pay");
+
     this.token();
   }
 
+  payForm: FormGroup;
+
+  arrayCards: any;
   placeholder = "Direccion";
-  valorAPagar = 152.52;
-  transactionModel = {
-    card_number: "1234567890123457",
-    cardTransaction_amount: "77777",
-    cardTransaction_concept: "Compra compartida x2",
-    cardTransaction_currency: "COP",
-    cardTransaction_date: "2018-09-21",
-    cardTransaction_id: "12345687",
-    cardTransaction_valueDate: "2018-05-06 ",
-    cardsId: "1234567890123457"
-  };
+  valorAPagar: any;
   data = [
     { place: [{ value: "Carrera 50 # 60-39 Medellín" }] },
     { place: [{ value: "Carrera 3, Cali, Valle del Cauca" }] },
@@ -51,8 +49,19 @@ export class PagoComponent implements OnInit {
   }
 
   pagarr() {
-    this.spinner.show();
-    this.cardsService.transaction(this.transactionModel).subscribe(
+    //this.spinner.show();
+    const transactionModel = {
+      card_number: this.payForm.value.card,
+      cardTransaction_amount: this.valorAPagar,
+      cardTransaction_concept: localStorage.getItem("concepto"),
+      cardTransaction_currency: "COP",
+      cardTransaction_date: Date.now(),
+      cardTransaction_id: Math.floor(Math.random() * 9),
+      cardTransaction_valueDate: "2018-05-06 ",
+      cardsId: this.payForm.value.card
+    };
+
+    /*this.cardsService.transaction(this.transactionModel).subscribe(
       data => {
         ///Exito
         $(".btnsucces").click();
@@ -63,7 +72,7 @@ export class PagoComponent implements OnInit {
 
         this.spinner.hide();
       }
-    );
+    );*/
   }
 
   token() {
@@ -72,7 +81,12 @@ export class PagoComponent implements OnInit {
       this.cardsService.token(codeApp).subscribe(
         data => {
           const token = data["access_token"];
-          this.cardsService.cards(token).subscribe(data => console.log(data));
+          console.log(token);
+          this.cardsService.cards(token).subscribe(data => {
+            this.arrayCards = data["data"];
+          });
+
+          this.spinner.hide();
         },
         error => {
           console.log(error);

@@ -5,59 +5,59 @@
   >
 </nav>
 <div>
-  <div class="myclass jumbotron">
-    <div class="form-group">
+  <form [formGroup]="payForm" (ngSubmit)="pagarr()">
+    <div class="myclass jumbotron">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-5">
+            <label for="exampleSelect1">Selecciona Tu tarjeta</label>
+            <div>
+              <select formControlName="card" class="form-control" id="exampleSelect1">
+                <option
+                  *ngFor="let card of arrayCards"
+                  [value]="card.header.id"
+                  >{{ card.cards.card_number }}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" />
+
       <div class="row">
-        <div class="col-5">
-          <label for="exampleSelect1">Selecciona Tu tarjeta</label>
-          <select class="form-control" id="exampleSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+        <div class="col-6">
+          <label for="exampleSelect1">Direccion de entrega</label>
+
+          <ng-simple-autocomplete
+            [placeholder]="placeholder"
+            [sourceArray]="data"
+            [fieldNameFormatter]="returnFieldFromObject"
+            (onSelect)="selectedObject($event)"
+            [multiSelect]="false"
+          >
+          </ng-simple-autocomplete>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+      <div class="row">
+        <div class="col">
+          <h2 class="float-left">Total a pagar:</h2>
+          <h2 class="float-left">{{valorAPagar }}</h2>
+        </div>
+      </div>
+      <hr class="my-4" />
+
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <button type="submit" class="btn btn-primary btn-lg ">
+            <i class="fas fa-credit-card"></i> Pagar
+          </button>
         </div>
       </div>
     </div>
-    <hr class="my-4" />
-
-    <div class="row">
-      <div class="col-6">
-        <label for="exampleSelect1">Direccion de entrega</label>
-
-        <ng-simple-autocomplete
-          [placeholder]="placeholder"
-          [sourceArray]="data"
-          [fieldNameFormatter]="returnFieldFromObject"
-          (onSelect)="selectedObject($event)"
-          [multiSelect]="false"
-        >
-        </ng-simple-autocomplete>
-      </div>
-    </div>
-
-    <hr class="my-4" />
-    <div class="row">
-      <div class="col">
-        <h2 class="float-left">Total a pagar:</h2>
-        <h2 class="float-left">{{ valorAPagar }}</h2>
-      </div>
-    </div>
-    <hr class="my-4" />
-
-    <div class="row justify-content-md-center">
-      <div class="col">
-        <button
-          (click)="pagarr()"
-          type="button"
-          class="btn btn-primary btn-lg "
-        >
-          <i class="fas fa-credit-card"></i> Pagar
-        </button>
-      </div>
-    </div>
-  </div>
+  </form>
 
   <ngx-spinner
     bdColor="rgba(51, 51, 51, 0.8)"
