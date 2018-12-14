@@ -15,11 +15,19 @@ export class DetalleProductoComponent implements OnInit {
     amount = 0
     constructor() {}
     ngOnInit() {
+      for (const iterator of dataJson.products) {
+        if(this.product["id"] == iterator.id){
+          this.amount = iterator.myAmount;
+        }
+      }
     }
 
     sendOrder(){
+      let aux = 0;
       for (const iterator of dataJson.products) {
         if(this.product["id"] == iterator.id){
+          aux = this.amount - iterator.myAmount;
+          iterator.currentTotalAmount += aux;
           iterator.myAmount = this.amount;
         }
       }
