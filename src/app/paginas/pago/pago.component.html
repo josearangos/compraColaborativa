@@ -12,7 +12,11 @@
           <div class="col-5">
             <label for="exampleSelect1">Selecciona Tu tarjeta</label>
             <div>
-              <select formControlName="card" class="form-control" id="exampleSelect1">
+              <select
+                formControlName="card"
+                class="form-control"
+                id="exampleSelect1"
+              >
                 <option
                   *ngFor="let card of arrayCards"
                   [value]="card.header.id"
@@ -44,14 +48,18 @@
       <div class="row">
         <div class="col">
           <h2 class="float-left">Total a pagar:</h2>
-          <h2 class="float-left">{{valorAPagar }}</h2>
+          <h2 class="float-left">{{ valorAPagar }}</h2>
         </div>
       </div>
       <hr class="my-4" />
 
       <div class="row justify-content-md-center">
         <div class="col">
-          <button type="submit" class="btn btn-primary btn-lg ">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg "
+            [disabled]="payForm.invalid"
+          >
             <i class="fas fa-credit-card"></i> Pagar
           </button>
         </div>
@@ -74,7 +82,7 @@
     [showCancelButton]="false"
     [focusCancel]="true"
     [showConfirmButton]="false"
-    [timer]="1000"
+    [timer]="2000"
   >
   </swal>
   <button class="btnsucces hide" (click)="successFull.show()">bien</button>

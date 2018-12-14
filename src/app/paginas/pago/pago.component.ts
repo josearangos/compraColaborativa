@@ -3,6 +3,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { CardsService } from "./../../servicios/cards.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import dataJson from "../../data/dataJson";
+
 declare var jquery: any;
 declare var $: any;
 
@@ -15,7 +17,8 @@ export class PagoComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private cardsService: CardsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private route: Router
   ) {}
 
   ngOnInit() {
@@ -51,28 +54,43 @@ export class PagoComponent implements OnInit {
   pagarr() {
     //this.spinner.show();
     const transactionModel = {
-      card_number: this.payForm.value.card,
+      card_number: Math.floor(Math.random() * 10000000000),
       cardTransaction_amount: this.valorAPagar,
       cardTransaction_concept: localStorage.getItem("concepto"),
       cardTransaction_currency: "COP",
       cardTransaction_date: Date.now(),
-      cardTransaction_id: Math.floor(Math.random() * 9),
-      cardTransaction_valueDate: "2018-05-06 ",
+      cardTransaction_id: Math.floor(Math.random() * 10000000000),
+      cardTransaction_valueDate: Date.now(),
       cardsId: this.payForm.value.card
     };
 
-    /*this.cardsService.transaction(this.transactionModel).subscribe(
+    this.cardsService.transaction(transactionModel).subscribe(
       data => {
         ///Exito
+        for (const iterator of dataJson.products) {
+          if (localStorage.getItem("payId") == iterator.id) {
+            iterator.status = "review";
+            iterator.status_code = 1;
+            break;
+          }
+        }
+        localStorage.setItem(
+          "products",
+          JSON.stringify({
+            user: { isActive: true, name: "" },
+            products: dataJson.products
+          })
+        );
         $(".btnsucces").click();
         this.spinner.hide();
+        this.route.navigateByUrl("/");
       },
       error => {
         $(".btnerror").click();
 
         this.spinner.hide();
       }
-    );*/
+    );
   }
 
   token() {
