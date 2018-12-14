@@ -13,7 +13,7 @@ let defaultProds = {
             "price": "9.550",
             "minimunAmount": 800,
             "currentTotalAmount":780,
-            "myAmount": 0,
+            "myAmount": 5,
             "description": "Papel de 75grs, libre de ácido, con alta blancura y resistencia hecho 100% de caña de azúcar y libre de cloro elemental.",
             "picture": "https://papelist.com/413-thickbox_default/resma-papel-carta-reprograf.jpg",
             "reviews":[
