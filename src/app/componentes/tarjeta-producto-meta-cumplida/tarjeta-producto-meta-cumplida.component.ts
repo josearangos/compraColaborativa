@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-tarjeta-producto-meta-cumplida',
