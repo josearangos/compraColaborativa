@@ -55,7 +55,7 @@ export class DetalleProductoComponent implements OnInit {
           iterator.myAmount = parseInt($('#amountProducto').val(),10);
           iterator.status = "offer";
           iterator.status_code = 3;
-          if(iterator.currentTotalAmount > iterator.minimunAmount){
+          if(iterator.currentTotalAmount >= iterator.minimunAmount){
             iterator.status = "pay";
             iterator.status_code = 2;
           }

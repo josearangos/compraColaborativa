@@ -1,3 +1,5 @@
+
+<div class="container">
 <nav class=" text-center navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#"
     ><i class=" far fa-money-bill-alt"> </i>
@@ -48,7 +50,7 @@
       <div class="row">
         <div class="col">
           <h2 class="float-left">Total a pagar:</h2>
-          <h2 class="float-left">{{ valorAPagar }}</h2>
+          <h2 class="float-left">{{ prettyPrice() }}</h2>
         </div>
       </div>
       <hr class="my-4" />
@@ -98,4 +100,5 @@
   >
   </swal>
   <button class="btnerror hide" (click)="error.show()">Error</button>
+</div>
 </div>

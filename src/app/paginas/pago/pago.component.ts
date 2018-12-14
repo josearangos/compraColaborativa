@@ -35,6 +35,9 @@ export class PagoComponent implements OnInit {
   arrayCards: any;
   placeholder = "Direccion";
   valorAPagar: any;
+  prettyPrice(){
+    return "$"+this.numberWithCommas(this.valorAPagar);
+  }
   data = [
     { place: [{ value: "Carrera 50 # 60-39 Medellín" }] },
     { place: [{ value: "Carrera 3, Cali, Valle del Cauca" }] },
@@ -42,6 +45,9 @@ export class PagoComponent implements OnInit {
   ];
   cards = ["", "", "", ""];
 
+  numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
   returnFieldFromObject(item) {
     return item.place[0].value;
   }
