@@ -70,7 +70,10 @@ export class PagoComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       const codeApp = params["code"];
       this.cardsService.token(codeApp).subscribe(
-        data => {},
+        data => {
+          const token = data["access_token"];
+          this.cardsService.cards(token).subscribe(data => console.log(data));
+        },
         error => {
           console.log(error);
         }
