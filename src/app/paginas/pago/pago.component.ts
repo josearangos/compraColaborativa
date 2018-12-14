@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 import { CardsService } from "./../../servicios/cards.service";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 declare var jquery: any;
 declare var $: any;
@@ -13,10 +14,13 @@ declare var $: any;
 export class PagoComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
-    private cardsService: CardsService
+    private cardsService: CardsService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.token();
+  }
 
   placeholder = "Direccion";
   valorAPagar = 152.52;
@@ -60,5 +64,17 @@ export class PagoComponent implements OnInit {
         this.spinner.hide();
       }
     );
+  }
+
+  token() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      const codeApp = params["code"];
+      this.cardsService.token(codeApp).subscribe(
+        data => {},
+        error => {
+          console.log(error);
+        }
+      );
+    });
   }
 }
