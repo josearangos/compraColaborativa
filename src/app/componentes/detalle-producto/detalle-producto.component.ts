@@ -63,7 +63,6 @@ export class DetalleProductoComponent implements OnInit {
         }
       }
       localStorage.setItem('products',JSON.stringify({"user":{"isActive":true,"name":""},products:dataJson.products}));
-      $(".btnsucces").click();
       $('.detallesModal').modal('hide');
     } 
 
