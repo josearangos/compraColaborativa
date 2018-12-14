@@ -24,7 +24,6 @@ export class TarjetaProductoMetaCumplidaComponent implements OnInit {
   review() {}
 
   convertValue(product) {
-    console.log(product)
   return "50%"
   }
 

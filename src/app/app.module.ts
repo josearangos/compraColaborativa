@@ -35,7 +35,7 @@ import { CardsService } from "./servicios/cards.service";
   imports: [
     NgxSpinnerModule,
     NgSimpleAutocompleteModule,
-    BrowserModule,
+    BrowserModule,    
     AppRoutingModule
   ],
   providers: [CardsService],
