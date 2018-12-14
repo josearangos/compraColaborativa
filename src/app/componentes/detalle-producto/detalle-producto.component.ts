@@ -36,6 +36,14 @@ export class DetalleProductoComponent implements OnInit {
       }
       this.totalPrice = "$"+this.numberWithCommas(total);
     }
+    pay() {
+      let intPrice = parseInt(this.product.price.replace('.',''),10);
+      let total = intPrice * this.product.myAmount;
+      localStorage.setItem('pay',JSON.stringify(total));
+      localStorage.setItem('concepto',this.product.myAmount+' '+this.product.name);
+      window.location.href = "https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/authorize?client_id=92d5af2c-e6c1-49e5-8135-7abc3c970d03&response_type=code&scope=Card-credit:read:user&redirect_uri=http://localhost:4200/pago";
+    }
+
     sendOrder(){
       let aux = 0;
       for (const iterator of dataJson.products) {
@@ -44,9 +52,17 @@ export class DetalleProductoComponent implements OnInit {
           iterator.currentTotalAmount += aux;
           iterator.myAmount = parseInt($('#amountProducto').val(),10);
           iterator.status = "offer";
+          iterator.status_code = 3;
+          if(iterator.currentTotalAmount > iterator.minimunAmount){
+            iterator.status = "pay";
+            iterator.status_code = 2;
+          }
+          break;
         }
       }
+      localStorage.setItem('products',JSON.stringify({"user":{"isActive":true,"name":""},products:dataJson.products}));
       $(".btnsucces").click();
       $('.detallesModal').modal('hide');
-    }
+    } 
+
 }

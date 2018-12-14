@@ -1,4 +1,4 @@
-export default {
+let defaultProds = {
     "user": {
         "name": "María Isabel Tabares Bernal",
         "isActive": true,
@@ -7,6 +7,7 @@ export default {
         {
             "id":1,
             "status":"review",
+            "status_code":1,
             "name": "Resma Papel Carta Reprograf",
             "rating": 5,
             "price": "9.550",
@@ -33,6 +34,7 @@ export default {
         {
             "id":8,
             "status":"pay",
+            "status_code":2,
             "name": "Notas Adhesivas 6 tacos colores x600 Kores",
             "rating": 4,
             "price": "12.618",
@@ -46,6 +48,7 @@ export default {
         {
             "id":9,
             "status":"offer",
+            "status_code":3,
             "name": "Resaltador Flash Amarillo Pelikan",
             "rating": 4,
             "price": "1.430",
@@ -59,6 +62,7 @@ export default {
         {
             "id":12,
             "status":"offer",
+            "status_code":3,
             "name": "Caja Bolígrafo kilométrico 100  Negro x12",
             "rating": 4,
             "price": "5.718",
@@ -72,6 +76,7 @@ export default {
         {
             "id":2,
             "status":"no-offer",
+            "status_code":4,
             "name": "Carpeta Celuguia Carta Horizontal Norma",
             "rating": 5,
             "price": "303",
@@ -87,6 +92,7 @@ export default {
         {
             "id":3,
             "status":"no-offer",
+            "status_code":4,
             "name": "Tinta para sellos frasco 30cc Negro",
             "rating": 3,
             "price": "2.969",
@@ -102,6 +108,7 @@ export default {
         {
             "id":4,
             "status":"no-offer",
+            "status_code":4,
             "name": "Sobre de Manila Oficio",
             "rating": 4,
             "price": "87",
@@ -117,6 +124,7 @@ export default {
         {
             "id":5,
             "status":"no-offer",
+            "status_code":4,
             "name": "Sobre de Manila Carta Norma",
             "rating": 4,
             "price": "104",
@@ -130,6 +138,7 @@ export default {
         {
             "id":6,
             "status":"no-offer",
+            "status_code":4,
             "name": "Resma Papel Oficio Reprograf",
             "rating": 4,
             "price": "15.020",
@@ -143,6 +152,7 @@ export default {
         {
             "id":7,
             "status":"no-offer",
+            "status_code":4,
             "name": "Carpeta Celuguia Oficio Horizontal Norma",
             "rating": 4,
             "price": "303",
@@ -156,6 +166,7 @@ export default {
         {
             "id":10,
             "status":"no-offer",
+            "status_code":4,
             "name": "Resaltador Flash Rosado Pelikan",
             "rating": 4,
             "price": "1.430",
@@ -169,6 +180,7 @@ export default {
         {
             "id":11,
             "status":"no-offer",
+            "status_code":4,
             "name": "Caja Bolígrafo kilométrico 100 Azul Oscuro x12",
             "rating": 4,
             "price": "5.718",
@@ -182,6 +194,7 @@ export default {
         {
             "id":12,
             "status":"no-offer",
+            "status_code":4,
             "name": "Caja Bolígrafo kilométrico 100  Negro x12",
             "rating": 4,
             "price": "5.718",
@@ -195,6 +208,7 @@ export default {
         {
             "id":13,
             "status":"no-offer",
+            "status_code":4,
             "name": "Caja Bolígrafo kilométrico 100  Rojo x12",
             "rating": 4,
             "price": "5.718",
@@ -208,6 +222,7 @@ export default {
         {
             "id":14,
             "status":"no-offer",
+            "status_code":4,
             "name": "Cinta Standard Film 12m x 5m x 12 Tesa",
             "rating": 4,
             "price": "2.831",
@@ -221,6 +236,7 @@ export default {
         {
             "id":15,
             "status":"no-offer",
+            "status_code":4,
             "name": "Cinta Enmascarar 12mm x 40m 3m Scotch",
             "rating": 4,
             "price": "2.016",
@@ -232,4 +248,12 @@ export default {
             "reviews":[]
         },
     ]
+};
+let localProd = localStorage.getItem('products');
+let prods;
+if(!localProd){
+  prods = defaultProds;
+}else{
+  prods = JSON.parse(localProd);
 }
+export default prods

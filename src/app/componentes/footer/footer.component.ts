@@ -11,5 +11,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  clear(){
+  	localStorage.removeItem('products');
+  	console.log('cleared');
+  }
 }

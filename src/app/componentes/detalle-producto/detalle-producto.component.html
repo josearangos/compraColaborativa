@@ -83,9 +83,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
       <div class="modal-footer" *ngIf="product.status == 'pay'">
-        <a href="https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/authorize?client_id=92d5af2c-e6c1-49e5-8135-7abc3c970d03&response_type=code&scope=Card-credit:read:user&redirect_uri=http://localhost:4200/pago">
-          <button type="button" class="btn btn-success">Pagar</button>
-        </a>
+          <button type="button" (click)="pay()" class="btn btn-success">Pagar</button>
       </div>
       
     </div>
